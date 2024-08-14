@@ -1,0 +1,51 @@
+/* Profile.css */
+
+.profile-container {
+    color: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #333; /* Dark grey background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-header h1 {
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  .profile-header p {
+    color: #cccccc; /* Lighter grey for contrast */
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0c85d0;
+  }
+  
+  .tweets-section, .followers-section, .following-section, .likes-section {
+    margin-top: 20px;
+  }
+  
+  .tweet {
+    background-color: #444;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #f0f0f0;
+  }
+  
+  .tweet p {
+    margin: 0;
+  }
+  

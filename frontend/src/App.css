@@ -1,0 +1,116 @@
+/* App.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c; /* Dark grey background color */
+    color: #f0f0f0; /* Light text color for better contrast */
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #2c2c2c; /* Ensure the container also has the dark grey background */
+  }
+  
+  nav {
+    width: 100%;
+    background-color: #1da1f2;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav li {
+    margin: 0 15px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+  }
+  
+  nav a:hover {
+    background-color: #0c85d0;
+    border-radius: 5px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .home-container,
+  .profile-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #3c3c3c; /* Slightly lighter grey for the containers */
+    color: #f0f0f0; /* Light text color */
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .tweet {
+
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tweet-form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .tweet-form input,
+  .tweet-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #888; /* Lighter border color for inputs */
+    background-color: #4a4a4a; /* Match the background with the tweet background */
+    color: #f0f0f0;
+  }
+  
+  .tweet-form button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tweet-form button:hover {
+    background-color: #0c85d0;
+  }
+  
+  .tweet-date {
+    font-size: 0.9em;
+    color: #cccccc; /* Lighter grey for the date text */
+  }
+  

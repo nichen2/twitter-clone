@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './Tweet.css';
+
+function Tweet({ tweet }) {
+  const [likeCount, setLikeCount] = useState(tweet.likes.length);
+  const [liked, setLiked] = useState(tweet.likedByCurrentUser);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleLike = async () => {
+    if (isProcessing) return;
+
+    setIsProcessing(true);
+
+    try {
+      const url = liked
+        ? `http://localhost:5000/tweets/${tweet.id}/unlike`
+        : `http://localhost:5000/tweets/${tweet.id}/like`;
+
+      const response = await axios.post(url, {}, {
+        withCredentials: true,
+      });
+
+      if (response.status === 200 || response.status === 201) {
+        setLiked(!liked);
+        setLikeCount(liked ? likeCount - 1 : likeCount + 1);
+      }
+    } catch (error) {
+      console.error('Failed to like/unlike the tweet', error);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  return (
+    <div className="tweet">
+      <p>
+        <Link to={`/profile/${tweet.author.id}`} className="tweet-author">
+          <strong>{tweet.author.username}</strong>
+        </Link>: {tweet.content}
+      </p>
+      <p className="tweet-date">{new Date(tweet.createdAt).toLocaleString()}</p>
+      <div className="tweet-actions">
+        <button onClick={handleLike} disabled={isProcessing}>
+          {liked ? 'Unlike' : 'Like'} ({likeCount})
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Tweet;
