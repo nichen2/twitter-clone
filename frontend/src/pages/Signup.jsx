@@ -19,7 +19,7 @@ function Signup() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/signup', {
+      const response = await axios.post('https://twitter-clone-fu8e.onrender.com/auth/signup', {
         username,
         email,
         password,

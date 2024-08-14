@@ -16,7 +16,7 @@ function Profile() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${id}`, { withCredentials: true });
+        const response = await axios.get(`https://twitter-clone-fu8e.onrender.com/users/${id}`, { withCredentials: true });
         const userData = response.data.user;
 
         setUser(userData);
@@ -52,10 +52,10 @@ function Profile() {
   const handleFollow = async () => {
     try {
       if (isFollowing) {
-        await axios.post(`http://localhost:5000/users/${id}/unfollow`, {}, { withCredentials: true });
+        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/unfollow`, {}, { withCredentials: true });
         setIsFollowing(false);
       } else {
-        await axios.post(`http://localhost:5000/users/${id}/follow`, {}, { withCredentials: true });
+        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/follow`, {}, { withCredentials: true });
         setIsFollowing(true);
       }
     } catch (error) {

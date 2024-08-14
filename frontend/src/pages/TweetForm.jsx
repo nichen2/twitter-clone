@@ -15,7 +15,7 @@ function TweetForm({ onTweetPosted }) {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/tweets/create',
+        'https://twitter-clone-fu8e.onrender.com/tweets/create',
         { content: tweetContent },
         { withCredentials: true } // Include session credentials
       );

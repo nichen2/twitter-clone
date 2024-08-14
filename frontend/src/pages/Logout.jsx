@@ -7,7 +7,7 @@ function Logout() {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/auth/logout', {}, { withCredentials: true });
+      await axios.post('https://twitter-clone-fu8e.onrender.com/auth/logout', {}, { withCredentials: true });
       localStorage.removeItem('user'); // Remove user data from local storage
       sessionStorage.removeItem('userId');
       navigate('/login'); // Redirect to login page

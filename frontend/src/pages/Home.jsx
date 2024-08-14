@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     const fetchTweets = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/tweets/', {
+        const response = await axios.get('https://twitter-clone-fu8e.onrender.com/tweets/', {
           withCredentials: true
         });
 

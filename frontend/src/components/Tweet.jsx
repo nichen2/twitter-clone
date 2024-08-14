@@ -15,8 +15,8 @@ function Tweet({ tweet }) {
 
     try {
       const url = liked
-        ? `http://localhost:5000/tweets/${tweet.id}/unlike`
-        : `http://localhost:5000/tweets/${tweet.id}/like`;
+        ? `https://twitter-clone-fu8e.onrender.com/tweets/${tweet.id}/unlike`
+        : `https://twitter-clone-fu8e.onrender.com/tweets/${tweet.id}/like`;
 
       const response = await axios.post(url, {}, {
         withCredentials: true,
