@@ -6,9 +6,7 @@ const createTweet = async (req, res) => {
   const { content } = req.body;
   const userId = req.session.userId;
 
-  if (!userId) {
-    return res.status(401).json({ error: 'Not authenticated' });
-  }
+  
 
   try {
     const tweet = await prisma.tweet.create({
