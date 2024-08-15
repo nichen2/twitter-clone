@@ -4,10 +4,10 @@ const { ensureAuthenticated } = require('../middleware/authMiddleware');
 const { createTweet,getAllTweets, getUserTweets, getOtherUserTweets, deleteTweet, getFeed} = require('../controllers/tweetController');
 
 // Routes for tweets
-router.post('/create', ensureAuthenticated, createTweet);
+router.post('/create',  createTweet);
 router.get('/', getAllTweets);
 router.get('/user/:id', getOtherUserTweets);
-router.delete('/delete/:id', ensureAuthenticated, deleteTweet);
-router.get('/feed', ensureAuthenticated, getFeed);
+router.delete('/delete/:id',  deleteTweet);
+router.get('/feed',  getFeed);
 
 module.exports = router;
