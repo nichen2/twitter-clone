@@ -6,8 +6,6 @@ const createTweet = async (req, res) => {
   const { content } = req.body;
   const userId = req.session.userId;
 
-  
-
   try {
     const tweet = await prisma.tweet.create({
       data: {
