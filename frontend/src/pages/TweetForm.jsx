@@ -12,11 +12,11 @@ function TweetForm({ onTweetPosted }) {
       setError('Tweet content cannot be empty');
       return;
     }
-
+    const userId = sessionStorage.getItem('userId');
     try {
       const response = await axios.post(
         'https://twitter-clone-fu8e.onrender.com/tweets/create',
-        { content: tweetContent },
+        { content: tweetContent, userId },
         { withCredentials: true } // Include session credentials
       );
       console.log('Tweet posted successfully', response.data);
