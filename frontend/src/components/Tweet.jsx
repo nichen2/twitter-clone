@@ -7,7 +7,7 @@ function Tweet({ tweet }) {
   const [likeCount, setLikeCount] = useState(tweet.likes.length);
   const [liked, setLiked] = useState(tweet.likedByCurrentUser);
   const [isProcessing, setIsProcessing] = useState(false);
-  const userId = sessionStorage.getItem('userId');
+  const userId = parseInt(sessionStorage.getItem('userId'));
 
   const handleLike = async () => {
     if (isProcessing) return;
