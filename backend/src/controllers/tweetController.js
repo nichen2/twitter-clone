@@ -13,7 +13,10 @@ const createTweet = async (req, res) => {
       tweetData.authorId = userId;
     }
     const tweet = await prisma.tweet.create({
-      data: tweetData,
+      data: { 
+        tweetData,
+        authorId: userId ? parseInt(userId) : null,
+      }, 
       include: {
         author: {
           select: {
