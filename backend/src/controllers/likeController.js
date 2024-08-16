@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const likeTweet = async (req, res) => {
   const tweetId = parseInt(req.params.id);
   const userId = req.session.userId;
-
+  
   if (!userId) {
     return res.status(401).json({ error: 'Not authenticated' });
   }

@@ -7,6 +7,7 @@ function Tweet({ tweet }) {
   const [likeCount, setLikeCount] = useState(tweet.likes.length);
   const [liked, setLiked] = useState(tweet.likedByCurrentUser);
   const [isProcessing, setIsProcessing] = useState(false);
+  const userId = sessionStorage.getItem('userId');
 
   const handleLike = async () => {
     if (isProcessing) return;
@@ -18,7 +19,7 @@ function Tweet({ tweet }) {
         ? `https://twitter-clone-fu8e.onrender.com/tweets/${tweet.id}/unlike`
         : `https://twitter-clone-fu8e.onrender.com/tweets/${tweet.id}/like`;
 
-      const response = await axios.post(url, {}, {
+      const response = await axios.post(url, {userId}, {
         withCredentials: true,
       });
 
