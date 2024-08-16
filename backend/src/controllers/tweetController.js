@@ -3,16 +3,17 @@ const prisma = new PrismaClient();
 
 // Create a tweet
 const createTweet = async (req, res) => {
-  const { content } = req.body;
-  const userId = req.session.userId;
+  const { content, userId } = req.body;  // Expect userId to be optionally provided in the body
   console.log('Session Data:', req.session);
   console.log('Request Body:', req.body);
   try {
+    const tweetData = { content };
+    // Include authorId if it is provided
+    if (userId) {
+      tweetData.authorId = userId;
+    }
     const tweet = await prisma.tweet.create({
-      data: {
-        content,
-        authorId: userId,
-      },
+      data: tweetData,
       include: {
         author: {
           select: {
@@ -23,8 +24,10 @@ const createTweet = async (req, res) => {
         likes: true,
       },
     });
+
     res.status(201).json({ message: 'Tweet created successfully', tweet });
   } catch (err) {
+    console.error('Failed to create tweet:', err);
     res.status(500).json({ error: 'Failed to create tweet' });
   }
 };
