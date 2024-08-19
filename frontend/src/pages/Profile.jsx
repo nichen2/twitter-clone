@@ -68,9 +68,11 @@ function Profile() {
       <div className="profile-header">
         <h1>{user.username}'s Profile</h1>
         <p>Joined: {new Date(user.createdAt).toLocaleDateString()}</p>
-        <button onClick={handleFollow}>
-          {isFollowing ? 'Unfollow' : 'Follow'}
-        </button>
+        {parseInt(currentUserId) !== parseInt(id) && (
+          <button onClick={handleFollow}>
+            {isFollowing ? 'Unfollow' : 'Follow'}
+          </button>
+        )}
       </div>
       
       <div className="tweets-section">
