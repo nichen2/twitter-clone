@@ -65,7 +65,7 @@ function Tweet({ tweet }) {
           {liked ? 'Unlike' : 'Like'} ({likeCount})
         </button>
         {userId === tweet.author.id && (
-          <button onClick={handleDelete} disabled={isProcessing}>
+          <button className="delete-tweet" onClick={handleDelete} disabled={isProcessing}>
             Delete
           </button>
         )}
