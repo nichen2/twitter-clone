@@ -45,7 +45,7 @@ function Tweet({ tweet }) {
       );
 
       if (response.status === 200) {
-        if (onDelete) onDelete(tweet.id);
+        window.location.reload();
       }
     } catch (error) {
       console.error('Failed to delete tweet', error);
