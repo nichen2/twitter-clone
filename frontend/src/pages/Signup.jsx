@@ -27,7 +27,7 @@ function Signup() {
         withCredentials : true,
       });
       console.log('Signup successful', response.data);
-      navigate('/'); // Redirect to the home page
+      navigate('/login'); // Redirect to the login page
     } catch (error) {
       console.error('Signup failed', error);
       setError('Signup failed. Please try again.');
