@@ -52,10 +52,10 @@ function Profile() {
   const handleFollow = async () => {
     try {
       if (isFollowing) {
-        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/unfollow`, {}, { withCredentials: true });
-        setIsFollowing(false);
+        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/unfollow`, { userId: currentUserId}, { withCredentials: true });
+        setIsFollowing(false); 
       } else {
-        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/follow`, {}, { withCredentials: true });
+        await axios.post(`https://twitter-clone-fu8e.onrender.com/users/${id}/follow`, { userId: currentUserId}, { withCredentials: true });
         setIsFollowing(true);
       }
     } catch (error) {
