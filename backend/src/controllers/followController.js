@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 // Follow a user
 const followUser = async (req, res) => {
   const userIdToFollow = parseInt(req.params.id);
-  const userId = req.session.userId;
+  const userId = parseInt(req.session.userId);
 
   if (!userId) {
     return res.status(401).json({ error: 'Not authenticated' });
