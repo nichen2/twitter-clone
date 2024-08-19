@@ -120,6 +120,7 @@ const deleteTweet = async (req, res) => {
 
     res.status(200).json({ message: 'Tweet deleted successfully' });
   } catch (err) {
+    console.error('Failed to delete tweet:', err);
     res.status(500).json({ error: 'Failed to delete tweet' });
   }
 };
