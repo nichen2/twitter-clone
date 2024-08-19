@@ -4,7 +4,7 @@ const { ensureAuthenticated } = require('../middleware/authMiddleware');
 const { followUser, unfollowUser } = require('../controllers/followController');
 
 // Routes for following and unfollowing users
-router.post('/:id/follow', ensureAuthenticated, followUser);
-router.post('/:id/unfollow', ensureAuthenticated, unfollowUser);
+router.post('/:id/follow',  followUser);
+router.post('/:id/unfollow',  unfollowUser);
 
 module.exports = router;
