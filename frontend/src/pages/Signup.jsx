@@ -30,7 +30,7 @@ function Signup() {
       navigate('/login'); // Redirect to the login page
     } catch (error) {
       console.error('Signup failed', error);
-      setError('Signup failed. Please try again.');
+      setError('Signup failed. Please try again. Username already exists');
     }
   };
 
@@ -43,6 +43,7 @@ function Signup() {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
         <button type="submit">Sign Up</button>
       </form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
     
   );

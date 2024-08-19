@@ -27,7 +27,7 @@ function TweetForm({ onTweetPosted }) {
       }
     } catch (err) {
       console.error('Failed to post tweet', err);
-      setError('Failed to post tweet');
+      setError('Must be signed in to post tweets');
     }
   };
 

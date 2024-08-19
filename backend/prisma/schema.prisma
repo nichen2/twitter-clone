@@ -31,7 +31,7 @@ model Tweet {
   content   String
   authorId  Int
   author    User     @relation(fields: [authorId], references: [id])
-  likes     Like[]   @relation("tweetLikes")
+  likes     Like[]   @relation("tweetLikes", onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

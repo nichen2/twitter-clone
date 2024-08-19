@@ -22,7 +22,7 @@ function Login() {
       window.location.href = '/'; // Redirect to the home page
       // Handle successful login, e.g., store token, redirect, etc.
     } catch (error) {
-      console.error('Login failed', error);
+      setError('Invalid email or password.');
       // Handle login error
     }
   };
@@ -34,6 +34,7 @@ function Login() {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
         <button type="submit">Log In</button>
       </form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
     
   );
