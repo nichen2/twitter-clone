@@ -34,6 +34,24 @@ function Tweet({ tweet }) {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        `https://twitter-clone-fu8e.onrender.com/tweets/delete/${tweet.id}`,
+        {
+          data: { userId }, 
+          withCredentials: true,
+        }
+      );
+
+      if (response.status === 200) {
+        if (onDelete) onDelete(tweet.id);
+      }
+    } catch (error) {
+      console.error('Failed to delete tweet', error);
+    }
+  };
+
   return (
     <div className="tweet">
       <p>
@@ -46,6 +64,11 @@ function Tweet({ tweet }) {
         <button onClick={handleLike} disabled={isProcessing}>
           {liked ? 'Unlike' : 'Like'} ({likeCount})
         </button>
+        {userId === tweet.author.id && (
+          <button onClick={handleDelete} disabled={isProcessing}>
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );

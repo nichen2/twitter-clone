@@ -99,7 +99,7 @@ const getOtherUserTweets = async (req, res) => {
 // Delete a tweet
 const deleteTweet = async (req, res) => {
   const tweetId = parseInt(req.params.id);
-  const userId = req.session.userId;
+  const { userId } = req.body;
 
   if (!userId) {
     return res.status(401).json({ error: 'Not authenticated' });
@@ -110,7 +110,7 @@ const deleteTweet = async (req, res) => {
       where: { id: tweetId },
     });
 
-    if (!tweet || tweet.authorId !== userId) {
+    if (!tweet || tweet.authorId !== parseInt(userId)) {
       return res.status(403).json({ error: 'Not authorized to delete this tweet' });
     }
 
